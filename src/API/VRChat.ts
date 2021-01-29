@@ -48,7 +48,6 @@ export const getUserData = (Auth: string) => {
         Authorization: `Basic ${Auth}`,
         apiKey: "JlE5Jldo5Jibnk5O5hTx6XVqsJu4WJ26",
         "Access-Control-Allow-Origin": "*",
-        // credentials: "same-origin",
       },
       redirect: "follow",
     },

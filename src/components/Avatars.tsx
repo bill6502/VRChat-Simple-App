@@ -11,7 +11,6 @@ export const Avatars = () => {
   const [input, setInput] = useState<string>("");
   const [avatarInfos, setAvatarInfos] = useState<avatarInfo[] | null>(null);
   const Auth = useSelector<Tstate, string>((state) => state.Auth);
-  // const Token = useSelector<Tstate, string>((state) => state.Token);
 
   useEffect(() => {
     const getDatas = async () => {

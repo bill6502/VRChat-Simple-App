@@ -1,0 +1,97 @@
+export type Auth = {
+  ok: boolean;
+  token: string;
+};
+
+export type AuthUserData = {
+  id: string;
+  username: string;
+  displayName: string;
+  userIcon: string;
+  bio: string;
+  bioLinks: string[];
+  pastDisplayNames: string[];
+  hasEmail: boolean;
+  hasPendingEmail: boolean;
+  email: string;
+  obfuscatedEmail: string;
+  obfuscatedPendingEmail: string;
+  emailVerified: boolean;
+  hasBirthday: boolean;
+  unsubscribe: boolean;
+  friends: string[];
+  friendGroupNames: string[];
+  currentAvatarImageUrl: string;
+  currentAvatarThumbnailImageUrl: string;
+  fallbackAvatar: string;
+  currentAvatar: string;
+  currentAvatarAssetUrl: string;
+  accountDeletionDate: null | string;
+  acceptedTOSVersion: number;
+  steamId: string;
+  steamDetails?: {};
+  oculusId: string;
+  hasLoggedInFromClient: boolean;
+  homeLocation: string;
+  twoFactorAuthEnabled: boolean;
+  feature: {
+    twoFactorAuth: boolean;
+  };
+  status: "active" | "join me" | "ask me" | "busy" | "offline";
+  statusDescription: string;
+  state: "offline" | "active" | "online";
+  tags: string;
+  developerType: "none" | "trusted" | "internal" | "moderator";
+  last_login: string;
+  last_platform: string;
+  allowAvatarCopying: boolean;
+  isFriend: boolean;
+  friendKey: string;
+  onlineFriends: string[];
+  activeFriends: string[];
+  offlineFriends: string[];
+};
+
+export type OtherUserData = {
+  id: string;
+  username: string;
+  displayName: string;
+  userIcon: string;
+  bio: string;
+  bioLinks: string[];
+  currentAvatarImageUrl: string;
+  currentAvatarThumbnailImageUrl: string;
+  fallbackAvatar: string;
+  tags: string[];
+  developerType: "none" | "trusted" | "internal" | "moderator";
+  last_login: string;
+  last_platform: string;
+  allowAvatarCopying: boolean;
+  isFriend: boolean;
+  friendKey: string;
+  location: string;
+  worldId: string;
+  instanceId: string;
+  status: "active" | "join me" | "ask me" | "busy" | "offline";
+};
+
+export type avatarInfo = {
+  id: string;
+  name: string;
+  description: string;
+  authorId: string;
+  authorName: string;
+  tags: string[];
+  // assetUrl: string;
+  // assetUrlObject: AssetUrlObject;
+  imageUrl: string;
+  thumbnailImageUrl: string;
+  releaseStatus: string;
+  version: number;
+  featured: boolean;
+  // unityPackages: UnityPackage[];
+  unityPackageUrl: string;
+  // unityPackageUrlObject: UnityPackageUrlObject;
+  created_at: Date;
+  updated_at: Date;
+};

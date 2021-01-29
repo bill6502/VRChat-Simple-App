@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  outline: none;
+  user-select: none;
+}
+
+body {
+  background-color: #314259;
+}
+.App {
+  /* text-align: center; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

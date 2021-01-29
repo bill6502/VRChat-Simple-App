@@ -1,0 +1,64 @@
+.avatar {
+  /* display: flex;
+    flex-direction: column; */
+  position: relative;
+  border: none;
+  border-radius: 15px;
+}
+
+.avatar > img {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  outline: none;
+}
+
+.avatar > img:hover + .detail {
+  top: 200px;
+  z-index: 1;
+  transition: top 1s;
+}
+
+.detail {
+  position: absolute;
+  top: 350px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: -1;
+  background-color: #c4c4c4;
+  border-radius: 10px;
+  margin: 1rem 0 0 0;
+  padding: 1rem;
+  font-family: "Days One", sans-serif;
+}
+
+.detail > table {
+  min-width: 150px;
+  max-width: 350px;
+  /* flex-direction: column; */
+  /* justify-content: space-between; */
+}
+
+.detail > table > tr > td:nth-child(2) {
+  text-align: right;
+}
+
+@media only screen and (max-width: 400px) {
+  .avatar > img {
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    outline: none;
+  }
+  .avatar > img:hover + .detail {
+    top: 150px;
+    z-index: 1;
+    transition: top 1s;
+  }
+}

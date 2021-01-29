@@ -1,0 +1,54 @@
+.nav {
+  display: flex;
+  height: 15vh;
+  padding: 0 30px;
+  align-items: center;
+  background-color: #011826;
+  justify-content: space-between;
+}
+
+.nav > a {
+  padding: 0;
+  color: #b4cbd9;
+  font-size: 4.5rem;
+  font-weight: 800;
+  /* font-family: "Lemon", cursive; */
+  font-family: "Days One", sans-serif;
+  text-decoration: none;
+}
+
+.UserIconAndName {
+  display: flex;
+  align-items: center;
+}
+
+.UserIconAndName > p {
+  font-size: 3rem;
+  color: #b4cbd9;
+  font-family: "Days One", sans-serif;
+}
+
+.UserIconAndName > img {
+  height: 80px;
+  width: 80px;
+  object-fit: cover;
+  border-radius: 100%;
+  border: 3px solid chartreuse;
+  margin: 0 0 0 30px;
+}
+
+@media only screen and (max-width: 1300px) {
+  .UserIconAndName > p {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .UserIconAndName > p {
+    display: none;
+  }
+
+  .nav > a {
+    font-size: 3rem;
+  }
+}

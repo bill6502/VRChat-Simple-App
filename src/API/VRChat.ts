@@ -1,3 +1,4 @@
+import { UserData } from "../components/UserData";
 import { AuthUserData, OtherUserData, avatarInfo, Auth } from "./types";
 // import {Response} from "fetch-jsonp";
 
@@ -106,7 +107,7 @@ export const getAvatarInfo = (Auth: string) => {
 };
 
 export const changeAvatar = (Auth: string, AvatarID: string) => {
-  fetch(
+  return fetch(
     `https://cors-anywhere.herokuapp.com/https://api.vrchat.cloud/api/1/avatars/${AvatarID}/select?apiKey=JlE5Jldo5Jibnk5O5hTx6XVqsJu4WJ26`,
     {
       method: "PUT",
@@ -119,6 +120,6 @@ export const changeAvatar = (Auth: string, AvatarID: string) => {
     },
   )
     .then((response) => response.json())
-    .then((data) => console.log(data))
-    .catch((error) => console.log(error));
+    .then((data) => data as AuthUserData)
+    .catch((error) => null);
 };

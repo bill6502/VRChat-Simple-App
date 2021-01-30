@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Tstate } from "../Store/Reducer";
 import { avatarInfo } from "../API/types";
-import { changeAvatar, getAvatarInfo } from "../API/VRChat";
+import { changeAvatar, getAvatarInfo, getUserData } from "../API/VRChat";
 import { Avatar } from "./Avatar";
 import { Loading } from "./Loading";
 import "../style/Avatars.css";
@@ -10,7 +10,9 @@ import "../style/Avatars.css";
 export const Avatars = () => {
   const [input, setInput] = useState<string>("");
   const [avatarInfos, setAvatarInfos] = useState<avatarInfo[] | null>(null);
+
   const Auth = useSelector<Tstate, string>((state) => state.Auth);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const getDatas = async () => {
@@ -24,12 +26,15 @@ export const Avatars = () => {
     getDatas();
   }, []);
 
-  const handleButton = () => {
+  const handleButton = async () => {
     let AvatarID = "avtr_d720f33e-ed8d-4b1e-8d74-9735e17c87d5";
     if (input.length !== 0) {
       AvatarID = input;
     }
-    changeAvatar(Auth, AvatarID);
+
+    const data = await changeAvatar(Auth, AvatarID);
+
+    dispatch({ type: "AuthUserData", payload: data });
   };
 
   if (!avatarInfos)

@@ -19,7 +19,7 @@ export const UserData = () => {
     const GetData = async () => {
       const UserData = await getUserData(Auth);
 
-      // if (UserData !== null)
+      // if (UserData)
       dispatch({ type: "AuthUserData", payload: UserData });
     };
 

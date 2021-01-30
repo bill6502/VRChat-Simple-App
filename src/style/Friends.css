@@ -2,5 +2,29 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  font-family: "Days One", sans-serif;
   gap: 20px;
+}
+
+.QAQ {
+  font-size: 5rem;
+  color: white;
+}
+
+.updateButton {
+  margin: 30px;
+  padding: 16px 32px;
+  border: none;
+  border-radius: 15px;
+  font-size: 36px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #277ff2;
+  cursor: pointer;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.updateButton:hover {
+  color: #277ff2;
+  background-color: #fff;
 }

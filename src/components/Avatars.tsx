@@ -32,9 +32,12 @@ export const Avatars = () => {
       AvatarID = input;
     }
 
-    const data = await changeAvatar(Auth, AvatarID);
+    const res = await changeAvatar(Auth, AvatarID);
 
-    dispatch({ type: "AuthUserData", payload: data });
+    if (res) {
+      const Data = await getUserData(Auth);
+      dispatch({ type: "AuthUserData", payload: Data });
+    }
   };
 
   if (!avatarInfos)

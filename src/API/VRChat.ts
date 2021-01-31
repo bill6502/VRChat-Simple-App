@@ -120,6 +120,6 @@ export const changeAvatar = (Auth: string, AvatarID: string) => {
     },
   )
     .then((response) => response.json())
-    .then((data) => data as AuthUserData)
-    .catch((error) => null);
+    .then((data) => true)
+    .catch((error) => false);
 };

@@ -7,17 +7,17 @@ import { Loading } from "./Loading";
 import "../style/Friend.css";
 
 type props = {
-  ID: string;
+  UserID: string;
 };
 
-export const Friend = ({ ID }: props) => {
+export const Friend = ({ UserID }: props) => {
   const [UserData, SetUserData] = useState<OtherUserData | null>(null);
   // const Auth = useSelector<Tstate, string>((state) => state.Auth);
   const Auth = useSelector<Tstate, string>((state) => state.Auth);
 
   useEffect(() => {
     const FetchUserData = async () => {
-      const data = await getOtherUserData(Auth, ID);
+      const data = await getOtherUserData(Auth, UserID);
       // console.log(data, Auth);
       SetUserData(() => data);
     };

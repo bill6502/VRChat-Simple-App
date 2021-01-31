@@ -11,7 +11,6 @@ export const Friends = () => {
     (state) => state.AuthUserData,
   );
   const Auth = useSelector<Tstate, string>((state) => state.Auth);
-
   const [Friends, setFriends] = useState<string[]>([]);
 
   const dispatch = useDispatch();
@@ -28,16 +27,19 @@ export const Friends = () => {
     if (data) setFriends(() => data.onlineFriends);
   };
 
+  // console.log("FriendsArray", Friends);
   return (
     <>
       <button className="updateButton" onClick={updateMyData}>
         Update
       </button>
-      <div className={"friends" + (Friend.length === 0 ? " QAQ" : "")}>
-        {Friend.length > 0
-          ? Friends.map((friend) => <Friend key={friend} ID={friend} />)
-          : "QAQ"}
-      </div>
+      {Friends && (
+        <div className={"friends" + (Friends.length === 0 ? " QAQ" : "")}>
+          {Friends.length > 0
+            ? Friends.map((friend) => <Friend key={friend} UserID={friend} />)
+            : "QAQ"}
+        </div>
+      )}
     </>
   );
 };

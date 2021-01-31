@@ -13,10 +13,6 @@ export const Login = () => {
 
   const history = useHistory();
 
-  // const [startTransition, isPending] = useTransition({
-  //   timeoutMs: 3000,
-  // });
-
   const handleLogin = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ) => {
@@ -24,18 +20,11 @@ export const Login = () => {
 
     const respone = await AuthUser(btoa(`${username}:${password}`));
 
-    if (respone && respone.ok) {
+    if (respone?.ok) {
       console.log(" login successed");
 
-      // const UserData = await getUserData(
-      //   btoa(`${username}:${password}`),
-      //   respone.token,
-      // );
-
       //update Auth&AuthUserData to store(Redux)
-      // dispatch({ type: "Token", payload: respone.token });
       dispatch({ type: "Auth", payload: btoa(`${username}:${password}`) });
-      // dispatch({ type: "AuthUserData", payload: UserData });
 
       history.push("/");
     } else setIsLogin(false);

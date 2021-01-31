@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { AuthUser } from "./API/VRChat";
+import { encode } from "js-base64";
 import "./style/Login.css";
 
 export const Login = () => {
@@ -18,13 +19,15 @@ export const Login = () => {
   ) => {
     e.preventDefault();
 
-    const respone = await AuthUser(btoa(`${username}:${password}`));
+    const respone = await AuthUser(encode(`${username}:${password}`));
+
+    // console.log(encode(`${username}:${password}`));
 
     if (respone?.ok) {
       console.log(" login successed");
 
       //update Auth&AuthUserData to store(Redux)
-      dispatch({ type: "Auth", payload: btoa(`${username}:${password}`) });
+      dispatch({ type: "Auth", payload: encode(`${username}:${password}`) });
 
       history.push("/");
     } else setIsLogin(false);

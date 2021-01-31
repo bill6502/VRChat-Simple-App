@@ -33,13 +33,11 @@ export const Friends = () => {
       <button className="updateButton" onClick={updateMyData}>
         Update
       </button>
-      {Friends && (
-        <div className={"friends" + (Friends.length === 0 ? " QAQ" : "")}>
-          {Friends.length > 0
-            ? Friends.map((friend) => <Friend key={friend} UserID={friend} />)
-            : "QAQ"}
-        </div>
-      )}
+      <div className={"friends" + (Friends.length === 0 ? " QAQ" : "")}>
+        {Friends.length > 0
+          ? Friends.map((friend) => <Friend key={friend} UserID={friend} />)
+          : "QAQ"}
+      </div>
     </>
   );
 };

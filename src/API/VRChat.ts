@@ -1,22 +1,5 @@
 import { UserData } from "../components/UserData";
 import { AuthUserData, OtherUserData, avatarInfo, Auth } from "./types";
-// import {Response} from "fetch-jsonp";
-
-// const GetOptions = (Auth: string) => {
-//   let myHeaders = new Headers();
-//   myHeaders.append("Authorization", `Basic ${Auth}`);
-//   myHeaders.append("apiKey", "JlE5Jldo5Jibnk5O5hTx6XVqsJu4WJ26");
-//   myHeaders.append("Access-Control-Allow-Origin", "api.vrchat.cloud");
-//   myHeaders.append("Access-Control-Allow-Credentials", "true");
-
-//   let option: RequestInit = {
-//     method: "GET",
-//     headers: myHeaders,
-//     redirect: "follow",
-//   };
-
-//   return option;
-// };
 
 export const AuthUser = (Auth: string) => {
   const data = fetch(

@@ -4,6 +4,8 @@ import { Tstate } from "../Store/Reducer";
 import { getOtherUserData } from "../API/VRChat";
 import { OtherUserData } from "../API/types";
 import { Loading } from "./Loading";
+// import StarsIcon from "@material-ui/icons/Stars";
+import MonetizationOnIcon from "@material-ui/icons/MonetizationOn";
 import "../style/Friend.css";
 
 type props = {
@@ -16,18 +18,18 @@ export const Friend = ({ UserID }: props) => {
   const Auth = useSelector<Tstate, string>((state) => state.Auth);
 
   useEffect(() => {
-    const FetchUserData = async () => {
-      const data = await getOtherUserData(Auth, UserID);
-      // console.log(data, Auth);
-      SetUserData(() => data);
-    };
-
     FetchUserData();
   }, []);
 
+  const FetchUserData = async () => {
+    const data = await getOtherUserData(Auth, UserID);
+    // console.log(data, Auth);
+    SetUserData(() => data);
+  };
+
   if (!UserData) {
     return (
-      <div className="friend">
+      <div className="friend" onClick={() => FetchUserData()}>
         <Loading />
       </div>
     );
@@ -35,6 +37,9 @@ export const Friend = ({ UserID }: props) => {
 
   return (
     <div className="friend">
+      {UserData.userIcon && (
+        <MonetizationOnIcon fontSize="large" className="SubIcon" />
+      )}
       <img
         src={
           UserData?.userIcon !== ""

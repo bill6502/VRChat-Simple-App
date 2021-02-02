@@ -24,7 +24,7 @@ export const Login = () => {
     // console.log(encode(`${username}:${password}`));
 
     if (respone?.ok) {
-      console.log(" login successed");
+      // console.log(" login successed");
 
       //update Auth&AuthUserData to store(Redux)
       dispatch({ type: "Auth", payload: encode(`${username}:${password}`) });

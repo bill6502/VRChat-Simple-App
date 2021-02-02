@@ -43,6 +43,13 @@
   /* flex-direction: column; */
 }
 
+.SubIcon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #f4d03f;
+}
+
 /* .detail > table > tr > td {
   text-align: right;
 } */

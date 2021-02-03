@@ -32,7 +32,8 @@ export const Friend = ({ UserID }: props) => {
       <div
         className="friend"
         style={{ cursor: "pointer" }}
-        onClick={() => FetchUserData()}>
+        onClick={() => FetchUserData()}
+        title="click to reload">
         <Loading />
       </div>
     );

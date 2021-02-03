@@ -88,6 +88,7 @@
 }
 
 .Button > button {
+  position: relative;
   padding: 16px 32px;
   border: none;
   border-radius: 15px;
@@ -96,18 +97,17 @@
   color: #fff;
   background-color: #277ff2;
   cursor: pointer;
-  transition: color 0.3s, background-color 0.3s;
-  position: relative;
+  /* transition: color 0.3s, background-color 0.3s; */
 }
 
-.Button > button:hover {
+/* .Button > button:hover {
   color: #277ff2;
   background-color: #fff;
-}
+} */
 
 .loading {
   position: absolute;
   top: 0;
   right: 0;
-  transform: translateX(100%);
+  transform: translate(100%, -5%) scale(0.8, 0.8);
 }

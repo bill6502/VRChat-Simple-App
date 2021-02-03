@@ -35,7 +35,7 @@ export const Friends = () => {
   return (
     <>
       <div className="updateButton">
-        <button onClick={updateMyData}>
+        <button onClick={updateMyData} disabled={waitUpdate}>
           Update
           {waitUpdate && (
             <div className="loading">

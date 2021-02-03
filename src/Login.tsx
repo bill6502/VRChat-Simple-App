@@ -73,7 +73,12 @@ export const Login = () => {
           </div>
         )}
         <div className="Button">
-          <button type="submit" onClick={handleLogin}>
+          <button
+            type="submit"
+            onClick={handleLogin}
+            disabled={
+              username.length === 0 || password.length === 0 || waitLogin
+            }>
             Login
             {waitLogin && (
               <div className="loading">

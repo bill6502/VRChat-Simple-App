@@ -14,6 +14,12 @@
 .updateButton {
   margin: 30px;
   margin-top: 0;
+  display: flex;
+  justify-content: center;
+  /* transition: color 0.3s, background-color 0.3s; */
+}
+
+.updateButton > button {
   padding: 20px;
   border: none;
   border-radius: 15px;
@@ -22,10 +28,17 @@
   color: #fff;
   background-color: #277ff2;
   cursor: pointer;
-  transition: color 0.3s, background-color 0.3s;
+  position: relative;
 }
 
-.updateButton:hover {
+.loading {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateX(100%);
+}
+
+/* .updateButton:hover {
   color: #277ff2;
   background-color: #fff;
-}
+} */

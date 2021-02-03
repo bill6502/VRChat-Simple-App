@@ -29,7 +29,10 @@ export const Friend = ({ UserID }: props) => {
 
   if (!UserData) {
     return (
-      <div className="friend" onClick={() => FetchUserData()}>
+      <div
+        className="friend"
+        style={{ cursor: "pointer" }}
+        onClick={() => FetchUserData()}>
         <Loading />
       </div>
     );

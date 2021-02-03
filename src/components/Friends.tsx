@@ -5,6 +5,7 @@ import { Friend } from "./Friend";
 import { getUserData } from "../API/VRChat";
 import { AuthUserData } from "../API/types";
 import "../style/Friends.css";
+import { LoadingRing } from "./LoadingRing";
 
 export const Friends = () => {
   const MyData = useSelector<Tstate, AuthUserData | null>(
@@ -12,6 +13,7 @@ export const Friends = () => {
   );
   const Auth = useSelector<Tstate, string>((state) => state.Auth);
   const [Friends, setFriends] = useState<string[]>([]);
+  const [waitUpdate, setWaitUpdate] = useState<boolean>(false);
 
   const dispatch = useDispatch();
 
@@ -20,7 +22,9 @@ export const Friends = () => {
   }, []);
 
   const updateMyData = async () => {
+    setWaitUpdate(true);
     const data = await getUserData(Auth);
+    setWaitUpdate(false);
 
     dispatch({ type: "AuthUserData", payload: data });
 
@@ -30,9 +34,16 @@ export const Friends = () => {
   // console.log("FriendsArray", Friends);
   return (
     <>
-      <button className="updateButton" onClick={updateMyData}>
-        Update
-      </button>
+      <div className="updateButton">
+        <button onClick={updateMyData}>
+          Update
+          {waitUpdate && (
+            <div className="loading">
+              <LoadingRing />
+            </div>
+          )}
+        </button>
+      </div>
       <div className={"friends" + (Friends.length === 0 ? " QAQ" : "")}>
         {Friends.length > 0
           ? Friends.map((friend) => <Friend key={friend} UserID={friend} />)

@@ -3,12 +3,14 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { AuthUser } from "./API/VRChat";
 import { encode } from "js-base64";
+import { LoadingRing } from "./components/LoadingRing";
 import "./style/Login.css";
 
 export const Login = () => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [isLogin, setIsLogin] = useState<boolean>(true);
+  const [waitLogin, setWaitLogin] = useState<boolean>(false);
 
   const dispatch = useDispatch();
 
@@ -19,18 +21,18 @@ export const Login = () => {
   ) => {
     e.preventDefault();
 
+    setWaitLogin(true);
     const respone = await AuthUser(encode(`${username}:${password}`));
 
-    // console.log(encode(`${username}:${password}`));
-
     if (respone?.ok) {
-      // console.log(" login successed");
-
       //update Auth&AuthUserData to store(Redux)
       dispatch({ type: "Auth", payload: encode(`${username}:${password}`) });
 
       history.push("/");
-    } else setIsLogin(false);
+    } else {
+      setWaitLogin(false);
+      setIsLogin(false);
+    }
   };
 
   return (
@@ -73,6 +75,11 @@ export const Login = () => {
         <div className="Button">
           <button type="submit" onClick={handleLogin}>
             Login
+            {waitLogin && (
+              <div className="loading">
+                <LoadingRing />
+              </div>
+            )}
           </button>
         </div>
       </form>
